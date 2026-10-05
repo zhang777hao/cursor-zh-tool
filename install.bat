@@ -1,2 +1,2 @@
 @echo off
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0cursor-zh.ps1" -Action install
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0cursor-zh.ps1" -Action install %*

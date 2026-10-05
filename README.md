@@ -3,12 +3,15 @@
 把 Cursor 自研界面（Agent/Chat 面板、Cursor Settings、内置浏览器、更改面板等）永久显示为简体中文，
 无需每次用注入窗口启动。仅限 Windows，不需要 Node.js / git。
 
+## 获取
+
+打开 [github.com/zhang777hao/cursor-zh-tool](https://github.com/zhang777hao/cursor-zh-tool)，点 **Code → Download ZIP** 后解压。保持 `assets` 文件夹和 `cursor-zh.ps1` 在一起。
+
 ## 使用
 
-1. 解压整个文件夹（保持 `assets` 文件夹和 `cursor-zh.ps1` 在一起）。
-2. 双击 `install.bat`，如弹出 UAC 提示请点"是"。
-3. 完全退出并重新打开 Cursor。
-4. （建议）在 Cursor 扩展里安装官方中文语言包 `MS-CEINTL.vscode-language-pack-zh-hans`，它负责菜单、命令面板等 VS Code 底座部分。
+1. 双击 `install.bat`，如弹出 UAC 提示请点"是"。
+2. 完全退出并重新打开 Cursor。
+3. （建议）在 Cursor 扩展里安装官方中文语言包 `MS-CEINTL.vscode-language-pack-zh-hans`，它负责菜单、命令面板等 VS Code 底座部分。
 
 | 文件 | 作用 |
 | --- | --- |
@@ -16,8 +19,40 @@
 | `restore.bat` | 还原为英文原版 |
 | `status.bat` | 查看当前状态 |
 
-Cursor 装在非默认位置时，在 PowerShell 中运行：
-`.\cursor-zh.ps1 -Action install -CursorPath "D:\你的路径\cursor"`
+## 指定 Cursor 安装目录
+
+不传路径时，工具按下面顺序找，用第一个同时包含 `Cursor.exe` 和 `resources\app\product.json` 的目录：
+
+1. 你用 `-CursorPath` 指定的路径
+2. 当前正在运行的 Cursor 进程所在目录
+3. `%LOCALAPPDATA%\Programs\cursor`（默认的用户安装位置）
+4. `%ProgramFiles%\cursor`
+5. `%ProgramFiles(x86)%\cursor`（该环境变量存在时）
+
+装在默认位置，或安装时 Cursor 正开着，直接双击 `install.bat` 即可。
+
+装在其他盘、其他文件夹时，先找到安装目录：开始菜单里右键 Cursor → **打开文件所在的位置**。如果打开的是快捷方式，再右键该快捷方式 → **属性** → **打开文件所在的位置**。正确的目录里应有 `Cursor.exe` 和 `resources` 文件夹，不要指到 `Cursor.exe` 本身，也不要指到 `resources` 里面。
+
+然后在本工具目录打开命令行，把路径换成你的：
+
+```bat
+install.bat -CursorPath "D:\Apps\cursor"
+```
+
+还原、查看状态同样可以带上路径：
+
+```bat
+restore.bat -CursorPath "D:\Apps\cursor"
+status.bat -CursorPath "D:\Apps\cursor"
+```
+
+也可以直接调用脚本：
+
+```powershell
+.\cursor-zh.ps1 -Action install -CursorPath "D:\Apps\cursor"
+```
+
+三个操作都支持：`install`（安装）、`restore`（还原）、`status`（查看状态）。找不到目录时会提示你加上 `-CursorPath`。
 
 ## 原理
 
