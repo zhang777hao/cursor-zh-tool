@@ -13,63 +13,52 @@
     ".agent-transcript-row-markdown",
     ".composer-human-message",
     ".markdown-root:not(.vscode-model-picker__trigger-markdown)",
-    ".markdown-body"
+    ".markdown-body",
+    ".explorer-item",
+    ".open-editors .monaco-list-row",
+    ".monaco-breadcrumbs",
+    ".search-view .filematch",
+    ".search-view .foldermatch",
+    ".search-view .linematch",
+    ".outline-pane",
+    ".timeline-tree-view"
   ],
-  "attributes": [
-    "title",
-    "aria-label",
-    "placeholder",
-    "data-placeholder",
-    "alt"
-  ],
+  "attributes": ["title", "aria-label", "placeholder", "data-placeholder", "alt"],
   "_suffixes 说明": "可剥离的后缀：先翻译前缀，再把后缀替换后拼回。用于 'Reading foo.ts. Open activity'、'3 files +12 -3' 这类组合文案。",
   "suffixes": [
-    {
-      "match": "\\. Open activity$",
-      "replace": "。打开活动"
-    },
-    {
-      "match": " \\+(\\d+) -(\\d+)$",
-      "replace": " +$1 -$2"
-    },
-    {
-      "match": " \\+(\\d+)$",
-      "replace": " +$1"
-    },
-    {
-      "match": " -(\\d+)$",
-      "replace": " -$1"
-    },
-    {
-      "match": ", unread$",
-      "replace": "，未读"
-    },
-    {
-      "match": ", read$",
-      "replace": "，已读"
-    }
+    { "match": "\\. Open activity$", "replace": "。打开活动" },
+    { "match": " \\+(\\d+) -(\\d+)$", "replace": " +$1 -$2" },
+    { "match": " \\+(\\d+)$", "replace": " +$1" },
+    { "match": " -(\\d+)$", "replace": " -$1" },
+    { "match": ", unread$", "replace": "，未读" },
+    { "match": ", read$", "replace": "，已读" }
   ],
   "_segment 说明": "含 ', ' 的文案会按段拆开分别翻译再用 '，' 拼接，如 '3 files, explored 1 search, ran 2 commands'。",
-  "segmentSeparators": [
-    ", "
-  ],
+  "segmentSeparators": [", "],
   "segmentJoiner": "，",
   "exact": {
     "_模式与主按钮": "",
+    "Agent": "智能体",
+    "Agents": "智能体",
+    "Ask": "询问",
+    "Plan": "计划",
+    "Debug": "调试",
+    "Auto": "自动",
     "Manual": "手动",
     "Edit": "编辑",
     "Chat": "对话",
+    "Composer": "编排器",
     "Mode": "模式",
     "Modes": "模式",
     "Select mode": "选择模式",
     "Switch mode": "切换模式",
     "Toggle mode": "切换模式",
     "Choose a mode": "选择模式",
-    "Default (Auto)": "默认（Auto）",
+    "Default (Auto)": "默认（自动）",
     "New Chat": "新建对话",
     "New chat": "新建对话",
-    "New Agent": "新建 Agent",
-    "New agent": "新建 Agent",
+    "New Agent": "新建智能体",
+    "New agent": "新建智能体",
     "New conversation": "新建会话",
     "Chat History": "对话历史",
     "Chat history": "对话历史",
@@ -79,8 +68,8 @@
     "Past Chats": "历史对话",
     "Past chats": "历史对话",
     "Recent": "最近",
-    "Recent Agents": "最近的 Agent",
-    "Recent agents": "最近的 Agent",
+    "Recent Agents": "最近的智能体",
+    "Recent agents": "最近的智能体",
     "Add Context": "添加上下文",
     "Add context": "添加上下文",
     "Send": "发送",
@@ -259,12 +248,14 @@
     "Details": "详情",
     "Summary": "摘要",
     "Overview": "概述",
+
     "_状态词": "",
+    "Loading": "加载中",
     "Generating": "生成中",
-    "Thinking": "思考中",
+    "Thinking": "思考",
     "Thought": "思考了",
     "Worked": "工作了",
-    "Reasoning": "推理中",
+    "Reasoning": "推理",
     "Reasoned": "已推理",
     "Working": "处理中",
     "Searching": "搜索中",
@@ -321,6 +312,7 @@
     "Popular": "热门",
     "Trending": "趋势",
     "Featured": "精选",
+
     "_工具调用条目": "",
     "Read file": "读取文件",
     "Read": "读取",
@@ -356,15 +348,19 @@
     "Hide output": "隐藏输出",
     "Result": "结果",
     "Results": "结果",
+    "Diff": "差异",
     "Changes": "更改",
     "No changes": "无更改",
     "Todo": "待办",
     "Todos": "待办事项",
     "Task": "任务",
     "Tasks": "任务",
-    "Restore checkpoint": "恢复 Checkpoint",
-    "Restore Checkpoint": "恢复 Checkpoint",
-    "Restore checkpoint here": "恢复到此 Checkpoint",
+    "Subagent": "子代理",
+    "Subagents": "子代理",
+    "Checkpoint": "检查点",
+    "Restore checkpoint": "恢复检查点",
+    "Restore Checkpoint": "恢复检查点",
+    "Restore checkpoint here": "恢复到此检查点",
     "Restore to here": "恢复到此处",
     "Restore": "恢复",
     "Restoring": "恢复中",
@@ -377,9 +373,9 @@
     "Context": "上下文",
     "Compare": "比较",
     "Compare changes": "比较更改",
-    "View diff": "查看 Diff",
-    "Show diff": "显示 Diff",
-    "Hide diff": "隐藏 Diff",
+    "View diff": "查看差异",
+    "Show diff": "显示差异",
+    "Hide diff": "隐藏差异",
     "View changes": "查看更改",
     "View file": "查看文件",
     "Open file": "打开文件",
@@ -391,7 +387,8 @@
     "Show in folder": "在文件夹中显示",
     "Side by side": "并排",
     "Inline": "内联",
-    "Inline diff": "内联 Diff",
+    "Inline diff": "内联差异",
+    "Unified": "统一",
     "Split": "拆分",
     "Ignore whitespace": "忽略空白字符",
     "Word wrap": "自动换行",
@@ -406,6 +403,7 @@
     "Pop out": "弹出",
     "Pop out terminal": "弹出终端",
     "Collapse terminal": "折叠终端",
+
     "_上下文类别": "",
     "Files": "文件",
     "Files & Folders": "文件与文件夹",
@@ -437,14 +435,21 @@
     "Paste": "粘贴",
     "Branch": "分支",
     "Branches": "分支",
-    "Commit message": "Commit 信息",
-    "Generate commit message": "生成 Commit 信息",
+    "Commit": "提交",
+    "Commits": "提交",
+    "Commit message": "提交信息",
+    "Generate commit message": "生成提交信息",
     "Create PR": "创建 PR",
-    "Create Pull Request": "创建 PR",
-    "Pull Request": "PR",
+    "Create Pull Request": "创建拉取请求",
+    "Pull Request": "拉取请求",
+    "Push": "推送",
+    "Pull": "拉取",
     "Sync": "同步",
-    "Stage all": "全部 Stage",
-    "Stage All": "全部 Stage",
+    "Stage": "暂存",
+    "Stage all": "全部暂存",
+    "Stage All": "全部暂存",
+    "Unstage": "取消暂存",
+    "Staged": "已暂存",
     "Discard": "放弃",
     "Discard changes": "放弃更改",
     "Discard all changes": "放弃所有更改",
@@ -452,10 +457,14 @@
     "Uncommitted changes": "未提交的更改",
     "Untracked": "未跟踪",
     "Modified": "已修改",
-    "Merge conflicts": "Merge 冲突",
+    "Merge": "合并",
+    "Merge conflicts": "合并冲突",
     "Resolve conflicts": "解决冲突",
+    "Checkout": "检出",
     "Switch branch": "切换分支",
     "Create branch": "创建分支",
+    "Worktree": "工作树",
+    "Worktrees": "工作树",
     "Repository": "仓库",
     "Repositories": "仓库",
     "Project": "项目",
@@ -464,6 +473,7 @@
     "Recent projects": "最近的项目",
     "Workspace": "工作区",
     "Workspaces": "工作区",
+
     "_输入框占位": "",
     "Plan, search, build anything": "计划、搜索、构建任何内容",
     "Plan, search, build anything…": "计划、搜索、构建任何内容…",
@@ -485,11 +495,14 @@
     "Search rules": "搜索规则",
     "Search extensions": "搜索扩展",
     "Search Extensions in Marketplace": "在市场中搜索扩展",
-    "Search agents": "搜索 Agent",
+    "Search agents": "搜索智能体",
     "Search projects": "搜索项目",
     "Search repositories": "搜索仓库",
     "Filter by name": "按名称筛选",
+
     "_模型": "",
+    "Model": "模型",
+    "Models": "模型",
     "Select model": "选择模型",
     "Select Model": "选择模型",
     "Choose a model": "选择模型",
@@ -500,7 +513,8 @@
     "Add models": "添加模型",
     "Add Models": "添加模型",
     "Add model": "添加模型",
-    "Premium models": "Premium 模型",
+    "Premium": "高级",
+    "Premium models": "高级模型",
     "Free": "免费",
     "Usage-based": "按用量计费",
     "Usage-based pricing": "按用量计费",
@@ -513,6 +527,7 @@
     "Verified": "已验证",
     "Override OpenAI Base URL": "覆盖 OpenAI 基础 URL",
     "Base URL": "基础 URL",
+
     "_窗口与导航": "",
     "Open in Editor": "在编辑器中打开",
     "Open in editor": "在编辑器中打开",
@@ -521,7 +536,7 @@
     "Open IDE": "打开 IDE",
     "Open in IDE": "在 IDE 中打开",
     "Editor mode": "编辑器模式",
-    "Agent mode": "Agent 模式",
+    "Agent mode": "智能体模式",
     "Open Folder": "打开文件夹",
     "Open folder": "打开文件夹",
     "Open Project": "打开项目",
@@ -563,17 +578,18 @@
     "Jump to latest": "跳到最新",
     "Local": "本地",
     "Cloud": "云端",
-    "Cloud Agents": "云端 Agent",
-    "Cloud Agent": "云端 Agent",
-    "Cloud agents": "云端 Agent",
-    "Background Agents": "后台 Agent",
-    "Background Agent": "后台 Agent",
-    "Background agents": "后台 Agent",
+    "Cloud Agents": "云端智能体",
+    "Cloud Agent": "云端智能体",
+    "Cloud agents": "云端智能体",
+    "Background Agents": "后台智能体",
+    "Background Agent": "后台智能体",
+    "Background agents": "后台智能体",
     "Inbox": "收件箱",
     "Notifications": "通知",
     "Unread": "未读",
     "Mark as read": "标记为已读",
     "Mark all as read": "全部标记为已读",
+
     "_对话条目操作": "",
     "Regenerate": "重新生成",
     "Edit message": "编辑消息",
@@ -581,16 +597,16 @@
     "Delete message": "删除消息",
     "Delete chat": "删除对话",
     "Delete Chat": "删除对话",
-    "Delete agent": "删除 Agent",
-    "Delete Agent": "删除 Agent",
+    "Delete agent": "删除智能体",
+    "Delete Agent": "删除智能体",
     "Rename chat": "重命名对话",
     "Rename Chat": "重命名对话",
-    "Rename agent": "重命名 Agent",
+    "Rename agent": "重命名智能体",
     "Export chat": "导出对话",
     "Export Chat": "导出对话",
     "Export as Markdown": "导出为 Markdown",
-    "Duplicate chat": "创建对话副本",
-    "Duplicate Chat": "创建对话副本",
+    "Duplicate chat": "复制对话",
+    "Duplicate Chat": "复制对话",
     "Archive chat": "归档对话",
     "Good response": "回答不错",
     "Bad response": "回答不好",
@@ -600,6 +616,7 @@
     "User": "用户",
     "Assistant": "助手",
     "System": "系统",
+
     "_计划模式": "",
     "Create plan": "创建计划",
     "Create Plan": "创建计划",
@@ -623,6 +640,7 @@
     "Submit answers": "提交回答",
     "Steps": "步骤",
     "Step": "步骤",
+
     "_Cursor 设置": "",
     "Cursor Settings": "Cursor 设置",
     "Cursor settings": "Cursor 设置",
@@ -699,6 +717,7 @@
     "Manage": "管理",
     "Edit in settings.json": "在 settings.json 中编辑",
     "Open in settings.json": "在 settings.json 中打开",
+
     "_账户与订阅": "",
     "Log in": "登录",
     "Log In": "登录",
@@ -754,6 +773,7 @@
     "Guest": "访客",
     "Usage limit reached": "已达用量上限",
     "You've hit your usage limit": "你已达到用量上限",
+
     "_规则": "",
     "User Rules": "用户规则",
     "User rules": "用户规则",
@@ -783,10 +803,14 @@
     "Include .cursorrules file": "包含 .cursorrules 文件",
     "Commands": "命令",
     "Command": "命令",
+    "Skills": "技能",
+    "Skill": "技能",
+    "Hooks": "钩子",
     "Plugins": "插件",
     "Plugin": "插件",
     "Automations": "自动化",
     "Automation": "自动化",
+
     "_索引与文档": "",
     "Resync Index": "重新同步索引",
     "Resync index": "重新同步索引",
@@ -814,13 +838,14 @@
     "Last updated": "最后更新",
     "Last Updated": "最后更新",
     "Pages": "页面",
+
     "_功能开关": "",
     "Suggestions in Comments": "在注释中给出建议",
     "Partial Accepts": "部分接受",
     "Auto Import": "自动导入",
     "Auto Imports": "自动导入",
-    "Snooze": "暂时停用",
-    "Snooze Tab": "暂时停用 Tab",
+    "Snooze": "暂停",
+    "Snooze Tab": "暂停 Tab",
     "Auto-run": "自动运行",
     "Auto-Run": "自动运行",
     "Auto-run mode": "自动运行模式",
@@ -838,7 +863,7 @@
     "Dotfile protection": "点文件保护",
     "Outside workspace protection": "工作区外保护",
     "External file protection": "外部文件保护",
-    "Auto-accept on commit": "Commit 时自动接受",
+    "Auto-accept on commit": "提交时自动接受",
     "Auto-Fix Errors": "自动修复错误",
     "Auto-fix errors": "自动修复错误",
     "Iterate on lints": "根据 Lint 迭代",
@@ -865,6 +890,7 @@
     "Comfortable": "舒适",
     "Permission": "权限",
     "Permissions": "权限",
+
     "_扩展市场": "",
     "Extensions": "扩展",
     "Extension": "扩展",
@@ -881,6 +907,7 @@
     "Requirements": "要求",
     "Categories": "分类",
     "Tags": "标签",
+
     "_欢迎与引导": "",
     "Welcome": "欢迎",
     "Welcome to Cursor": "欢迎使用 Cursor",
@@ -903,6 +930,7 @@
     "Choose a theme": "选择主题",
     "Choose theme": "选择主题",
     "Import from": "导入来源",
+
     "_错误与提示": "",
     "Something went wrong": "出错了",
     "Something went wrong.": "出错了。",
@@ -929,7 +957,7 @@
     "No files": "无文件",
     "No history": "无历史记录",
     "No chats yet": "还没有对话",
-    "No agents yet": "还没有 Agent",
+    "No agents yet": "还没有智能体",
     "No recent projects": "没有最近的项目",
     "Today": "今天",
     "Yesterday": "昨天",
@@ -939,6 +967,7 @@
     "Older": "更早",
     "Just now": "刚刚",
     "Now": "现在",
+
     "_单位": "",
     "files": "文件",
     "file": "文件",
@@ -969,17 +998,19 @@
     "years": "年",
     "year": "年",
     "ago": "前",
+
     "_第一次 collect 补充（Agent 窗口 / 浏览器 / 更改面板）": "",
     "or": "或",
     "Browser": "浏览器",
-    "Fork chat": "Fork 对话",
-    "Fork Chat": "Fork 对话",
+    "Fork chat": "分叉对话",
+    "Fork Chat": "分叉对话",
     "Apps": "应用",
     "Hide Apps": "隐藏应用",
     "Show Apps": "显示应用",
     "Apps Panel": "应用面板",
     "Open Apps Panel": "打开应用面板",
     "Uncommitted": "未提交",
+    "Unstaged": "未暂存",
     "Open Tabs": "打开的标签页",
     "Tabs": "标签页",
     "New Tab": "新标签页",
@@ -998,20 +1029,20 @@
     "Use a Git repository to track changes": "使用 Git 仓库跟踪更改",
     "Initialize Repository": "初始化仓库",
     "No Repo": "无仓库",
-    "All Commits": "所有 Commit",
-    "Commit & Push": "Commit 并 Push",
-    "in staged scope": "在 Staged 范围内",
-    "in unstaged scope": "在 Unstaged 范围内",
+    "All Commits": "所有提交",
+    "Commit & Push": "提交并推送",
+    "in staged scope": "在已暂存范围内",
+    "in unstaged scope": "在未暂存范围内",
     "in committed scope": "在已提交范围内",
-    "Edit Pull Request Title": "编辑 PR 标题",
-    "from pull request tab": "来自 PR 标签页",
+    "Edit Pull Request Title": "编辑拉取请求标题",
+    "from pull request tab": "来自拉取请求标签页",
     "Jump to Next File": "跳到下一个文件",
     "Jump to Previous File": "跳到上一个文件",
-    "Open diff menu": "打开 Diff 菜单",
+    "Open diff menu": "打开差异菜单",
     "Toggle Expansion of File": "切换文件展开",
     "Toggle Selection of File": "切换文件选中",
     "PR merged": "PR 已合并",
-    "Pull Requests": "PR",
+    "Pull Requests": "拉取请求",
     "Enter Full Screen": "进入全屏",
     "Toggle Full Screen": "切换全屏",
     "Toggle Fullscreen": "切换全屏",
@@ -1061,14 +1092,15 @@
     "Open Customize": "打开自定义",
     "Focus Customize Search": "聚焦自定义搜索",
     "Plugins, MCPs, Skills, and Rules have moved to Customize": "插件、MCP、技能和规则已移至“自定义”",
+    "View": "查看",
     "New Project": "新建项目",
     "Create Project": "创建项目",
     "Project name": "项目名称",
     "Choose project icon": "选择项目图标",
     "This PC": "此电脑",
     "This PC environment": "此电脑环境",
-    "Last Agent Turn": "上一轮 Agent 回合",
-    "Add agents, context, tools": "添加 Agent、上下文、工具",
+    "Last Agent Turn": "上一轮智能体回合",
+    "Add agents, context, tools": "添加智能体、上下文、工具",
     "Start voice input": "开始语音输入",
     "Dictate": "语音输入",
     "Hold to Talk": "按住说话",
@@ -1137,13 +1169,14 @@
     "Click to copy": "点击复制",
     "Proceed": "继续",
     "Mark as Fixed": "标记为已修复",
-    "Open Canvas": "打开 Canvas",
+    "Open Canvas": "打开画布",
     "Find in Output": "在输出中查找",
-    "when agent workspace focused": "当 Agent 工作区聚焦时",
+    "when agent workspace focused": "当智能体工作区聚焦时",
     "Scroll Down": "向下滚动",
     "Scroll Up": "向上滚动",
-    "Scroll Agent Panel Down": "向下滚动 Agent 面板",
-    "Scroll Agent Panel Up": "向上滚动 Agent 面板",
+    "Scroll Agent Panel Down": "向下滚动智能体面板",
+    "Scroll Agent Panel Up": "向上滚动智能体面板",
+
     "_第一次 collect 补充（快捷键命令名）": "",
     "Cycle Instance Selector": "循环切换实例选择器",
     "Cycle Model Parameter": "循环切换模型参数",
@@ -1157,10 +1190,10 @@
     "Approve Pending Shell Tool": "批准待处理的 Shell 工具",
     "Approve Pending Shell Tool and Allowlist": "批准待处理的 Shell 工具并加入允许列表",
     "Skip Pending Shell Tool": "跳过待处理的 Shell 工具",
-    "Checkout Agent Branch": "Checkout Agent 分支",
+    "Checkout Agent Branch": "检出智能体分支",
     "Use Current Branch": "使用当前分支",
-    "Copy Agent Deeplink": "复制 Agent 深链接",
-    "for cloud agents": "适用于云端 Agent",
+    "Copy Agent Deeplink": "复制智能体深链接",
+    "for cloud agents": "适用于云端智能体",
     "Edit Nearest User Message": "编辑最近的用户消息",
     "Jump to Next User Message": "跳到下一条用户消息",
     "Jump to Previous User Message": "跳到上一条用户消息",
@@ -1168,12 +1201,12 @@
     "Focus Adjacent Tile": "聚焦相邻磁贴",
     "Focus Chat Input": "聚焦对话输入框",
     "New Side Chat": "新建侧边对话",
-    "Next Agent": "下一个 Agent",
-    "Previous Agent": "上一个 Agent",
+    "Next Agent": "下一个智能体",
+    "Previous Agent": "上一个智能体",
     "Next Chat (Direct)": "下一个对话（直接）",
     "Previous Chat (Direct)": "上一个对话（直接）",
-    "Open Least Recent Agents": "打开最久未用的 Agent",
-    "Open Recent Agents": "打开最近的 Agent",
+    "Open Least Recent Agents": "打开最久未用的智能体",
+    "Open Recent Agents": "打开最近的智能体",
     "Remove from Tileset": "从磁贴组移除",
     "Split Tile Horizontally": "水平拆分磁贴",
     "Split Tile Vertically": "垂直拆分磁贴",
@@ -1190,6 +1223,7 @@
     "Toggle Search in Files": "切换在文件中搜索",
     "Show Notification Progress Demo": "显示通知进度演示",
     "Search keybindings...": "搜索键位...",
+
     "_第一次 collect 补充（Cursor Settings）": "",
     "Plan & Usage": "套餐与用量",
     "Cursor Account": "Cursor 账户",
@@ -1197,7 +1231,7 @@
     "Git & PRs": "Git 与 PR",
     "Browser & Network": "浏览器与网络",
     "Code Intelligence": "代码智能",
-    "Agent Conversations": "Agent 对话",
+    "Agent Conversations": "智能体对话",
     "Conversation": "对话",
     "Conversation density": "对话密度",
     "Colors": "颜色",
@@ -1226,7 +1260,7 @@
     "Intensity": "强度",
     "Tint intensity": "色调强度",
     "Control how strongly the tint is applied": "控制色调的应用强度",
-    "Themed Diff Backgrounds": "主题化 Diff 背景",
+    "Themed Diff Backgrounds": "主题化差异背景",
     "Use themed background colors for inline code diffs": "为内联代码差异使用主题背景色",
     "Tool Call Density": "工具调用密度",
     "Adjust how much detail is shown for tool calls": "调整工具调用显示的详细程度",
@@ -1238,7 +1272,7 @@
     "Allow the agent to celebrate with a shower of confetti": "允许智能体用彩带雨庆祝",
     "Hide Email Address": "隐藏邮箱地址",
     "Show rotating tips on the empty screen": "在空白界面显示轮播提示",
-    "Continue Interrupted Agents": "继续被中断的 Agent",
+    "Continue Interrupted Agents": "继续被中断的智能体",
     "System Notifications": "系统通知",
     "Cloud Agent Approval Banners While Focused": "窗口聚焦时显示云端智能体批准横幅",
     "Warning Notifications": "警告通知",
@@ -1249,11 +1283,11 @@
     "Play a sound when agents finish or need attention": "智能体完成或需要关注时播放提示音",
     "Data Sharing Enabled": "已启用数据共享",
     "Updating privacy settings": "正在更新隐私设置",
-    "Max Worktrees": "最大 Worktree 数",
-    "Maximum worktree count": "Worktree 数量上限",
+    "Max Worktrees": "最大工作树数",
+    "Maximum worktree count": "工作树数量上限",
     "Max Total Size (GB)": "最大总大小 (GB)",
     "Maximum total worktree size in gigabytes": "工作树总大小上限（GB）",
-    "Cursor-Managed Worktrees": "Cursor 托管的 Worktree",
+    "Cursor-Managed Worktrees": "Cursor 托管的工作树",
     "No Cursor-managed worktrees on this machine.": "此机器上没有 Cursor 托管的工作树。",
     "New Messages": "新消息",
     "Manually Sent Messages from Queue": "从队列手动发送的消息",
@@ -1268,7 +1302,7 @@
     "Default Model": "默认模型",
     "What model new agents use by default": "新智能体默认使用的模型",
     "Cursor Default": "Cursor 默认",
-    "Agent Autocomplete": "Agent 自动补全",
+    "Agent Autocomplete": "智能体自动补全",
     "Contextual suggestions while prompting Agent": "向智能体提问时的上下文建议",
     "Auto-Approve Mode Transitions": "自动批准模式切换",
     "Third-Party Imports": "第三方导入",
@@ -1296,8 +1330,8 @@
     "Auto-Parse Links": "自动解析链接",
     "Task Models": "任务模型",
     "Choose which models appear in the model picker": "选择在模型选择器中显示哪些模型",
-    "Explore Subagent Model": "Explore Subagent 模型",
-    "Choose Explore subagent model": "选择 Explore Subagent 模型",
+    "Explore Subagent Model": "Explore 子代理模型",
+    "Choose Explore subagent model": "选择 Explore 子代理模型",
     "View All Models": "查看所有模型",
     "Cursor Models": "Cursor 模型",
     "Other Models": "其他模型",
@@ -1305,7 +1339,7 @@
     "Inside Cursor": "在 Cursor 内",
     "PR Link Destination": "PR 链接目标",
     "Attribution": "署名",
-    "Commit Attribution": "Commit 署名",
+    "Commit Attribution": "提交署名",
     "Mark Agent commits as 'Made with Cursor'": "将智能体提交标记为“Made with Cursor”",
     "PR Attribution": "PR 署名",
     "Mark pull requests as made with Cursor": "将拉取请求标记为由 Cursor 创建",
@@ -1342,12 +1376,13 @@
     "Hierarchical Cursor Ignore": "分层 Cursor Ignore",
     "Ignore Symlinks in Cursor Ignore Search": "在 Cursor Ignore 搜索中忽略符号链接",
     "Enable LSPs": "启用 LSP",
-    "Enable LSPs for Worktrees": "为 Worktree 启用 LSP",
+    "Enable LSPs for Worktrees": "为工作树启用 LSP",
     "Maximum Local LSP Workspaces": "本地 LSP 工作区上限",
     "Maximum Remote LSP Workspaces": "远程 LSP 工作区上限",
     "Updates": "更新",
     "Close Settings": "关闭设置",
     "Create a focused chat where Agents coordinate work": "创建一个由多个智能体协调工作的专注对话",
+
     "_第一次 collect 补充（账户页）": "",
     "Included in Ultra": "Ultra 已包含",
     "On-Demand Usage": "按需用量",
@@ -1376,6 +1411,7 @@
     "Link 1": "链接 1",
     "Add link": "添加链接",
     "Public Profile": "公开资料",
+
     "_第二次 collect 补充": "",
     "Planning next moves": "规划下一步",
     "Ran type-check": "已运行类型检查",
@@ -1406,14 +1442,14 @@
     "Steer": "引导",
     "Steer the agent without stopping it": "在不停止智能体的情况下引导它",
     "Stop the agent and send the message": "停止智能体并发送消息",
-    "Send after Agent finishes": "Agent 完成后发送",
+    "Send after Agent finishes": "智能体完成后发送",
     "Choose Custom Sound...": "选择自定义提示音...",
     "Default Sound": "默认提示音",
     "Reset to default": "恢复默认",
     "Restore default parameters": "恢复默认参数",
-    "Agent Window": "Agent 窗口",
+    "Agent Window": "智能体窗口",
     "Last Used Windows": "上次使用的窗口",
-    "New Worktree": "新建 Worktree",
+    "New Worktree": "新建工作树",
     "Remote Machines": "远程机器",
     "Always": "始终",
     "Inherit from parent": "继承自父级",
@@ -1426,19 +1462,22 @@
     "Add Custom Model": "添加自定义模型",
     "Search menu items": "搜索菜单项",
     "Stop Ctrl+Shift+⌫": "停止 Ctrl+Shift+⌫",
+
     "_第三次 collect 补充（对话与选中操作）": "",
-    "Expand edit diff": "展开编辑 Diff",
-    "Collapse edit diff": "折叠编辑 Diff",
+    "Expand edit diff": "展开编辑差异",
+    "Collapse edit diff": "折叠编辑差异",
     "Add to Chat": "添加到对话",
     "Add to Side Chat": "添加到侧边对话",
     "Selection actions": "选中内容操作",
     "Open menu": "打开菜单",
     "Messages": "消息",
     "Chats": "对话",
+    "Fork": "分叉",
     "Move to": "移动到",
     "Split Down": "向下拆分",
     "Split Right": "向右拆分",
     "Select Multiple": "多选",
+    "Multitask": "多任务",
     "Asking questions": "正在提问",
     "Starting with": "起始于",
     "Explored": "已探索",
@@ -1450,7 +1489,7 @@
     "Checked": "已检查",
     "Mark as Unread": "标记为未读",
     "Archive All": "全部归档",
-    "Archive running agent?": "归档正在运行的 Agent？",
+    "Archive running agent?": "归档正在运行的智能体？",
     "Continue Working": "继续工作",
     "Continue on": "继续于",
     "Needs attention": "需要关注",
@@ -1463,13 +1502,13 @@
     "Open terminals (1)": "打开的终端 (1)",
     "Loading terminal": "正在加载终端",
     "Loading changes": "正在加载更改",
-    "Loading agents from Cursor": "正在从 Cursor 加载 Agent",
+    "Loading agents from Cursor": "正在从 Cursor 加载智能体",
     "Loading plan...": "正在加载计划...",
     "Rendering diagram...": "正在渲染图表...",
     "Expand diagram": "展开图表",
     "Pushing...": "正在推送...",
     "Creating…": "正在创建…",
-    "Creating agent…": "正在创建 Agent…",
+    "Creating agent…": "正在创建智能体…",
     "Building...": "正在构建...",
     "Setting up environment": "正在设置环境",
     "Close background work tray": "关闭后台工作托盘",
@@ -1487,6 +1526,7 @@
     "Search branches...": "搜索分支...",
     "Select branch": "选择分支",
     "Branch main, click to copy": "分支 main，点击复制",
+
     "_第三次 collect 补充（待办与计划）": "",
     "Todo content": "待办内容",
     "Todo description...": "待办描述...",
@@ -1509,6 +1549,7 @@
     "Orchestrate multiple subagents in parallel": "并行编排多个子代理",
     "Answer questions without making edits": "只回答问题，不做修改",
     "Modes, skills, MCPs and more": "模式、技能、MCP 等",
+
     "_第三次 collect 补充（Agent 窗口 / 环境 / 仓库）": "",
     "Remote": "远程",
     "Host": "主机",
@@ -1520,7 +1561,7 @@
     "Machine": "机器",
     "Environment": "环境",
     "Manage Environment": "管理环境",
-    "Agent environment": "Agent 环境",
+    "Agent environment": "智能体环境",
     "Cloud environment": "云端环境",
     "temporary workspace": "临时工作区",
     "This PC (Remote Control)": "此电脑（远程控制）",
@@ -1546,15 +1587,15 @@
     "Search remote repos...": "搜索远程仓库...",
     "Search remote repos, cloud environments...": "搜索远程仓库、云端环境...",
     "Search This PC...": "搜索此电脑...",
-    "Search skills, context, chats": "搜索 Skills、上下文、对话",
-    "Search skills, context, chats...": "搜索 Skills、上下文、对话...",
+    "Search skills, context, chats": "搜索技能、上下文、对话",
+    "Search skills, context, chats...": "搜索技能、上下文、对话...",
     "Open any file, URL, ...": "打开任意文件、URL...",
-    "Copy Agent ID": "复制 Agent ID",
+    "Copy Agent ID": "复制智能体 ID",
     "Copy Transcript": "复制对话记录",
     "Copy Web Link": "复制网页链接",
     "Copy Deep Link": "复制深链接",
     "Open in Web": "在网页中打开",
-    "Agent actions": "Agent 操作",
+    "Agent actions": "智能体操作",
     "Change action": "更改操作",
     "View options": "查看选项",
     "Manage scope": "管理范围",
@@ -1585,6 +1626,7 @@
     "Autorun mode: Auto-review": "自动运行模式：自动审查",
     "Autorun mode options": "自动运行模式选项",
     "Change run mode": "更改运行模式",
+
     "_第三次 collect 补充（模型与上下文）": "",
     "Effort": "推理强度",
     "Cycle Effort": "循环切换推理强度",
@@ -1600,21 +1642,23 @@
     "This model has special data retention policies.": "此模型有特殊的数据保留策略。",
     "Context Usage": "上下文用量",
     "Context usage preview": "上下文用量预览",
+    "Tokens": "Token 数",
     "System prompt": "系统提示词",
     "Tool definitions": "工具定义",
     "MCP & dynamic tools": "MCP 与动态工具",
-    "Subagent definitions": "Subagent 定义",
+    "Subagent definitions": "子代理定义",
+
     "_第三次 collect 补充（自定义 / 自动化 / 引导）": "",
-    "Search Plugins, Skills, MCPs...": "搜索插件、Skills、MCP...",
+    "Search Plugins, Skills, MCPs...": "搜索插件、技能、MCP...",
     "Browse Marketplace": "浏览市场",
     "New MCP Server": "新建 MCP 服务器",
     "Add a Custom MCP Server": "添加自定义 MCP 服务器",
-    "Delegate Work to Subagents": "把工作委派给 Subagent",
+    "Delegate Work to Subagents": "把工作委派给子代理",
     "Create Reusable Commands": "创建可复用命令",
-    "Automate with Hooks": "用 Hooks 实现自动化",
+    "Automate with Hooks": "用钩子实现自动化",
     "Execution Log": "执行日志",
     "Clear log": "清除日志",
-    "No hook executions yet": "尚无 Hooks 执行记录",
+    "No hook executions yet": "尚无钩子执行记录",
     "User Rule": "用户规则",
     "Use your skills with Cloud Agents": "在云端智能体中使用你的技能",
     "Import your Claude Code conversations": "导入你的 Claude Code 对话",
@@ -1646,17 +1690,23 @@
     "Meet Grok Bot": "认识 Grok Bot",
     "Get Grok Bot": "获取 Grok Bot",
     "About Cursor": "关于 Cursor",
+    "Canvas": "画布",
     "Browse": "浏览",
+
     "_第四次 collect 补充": "",
     "Unknown task subject": "未知任务主题",
     "Development environment setup": "开发环境设置",
     "Updated": "已更新",
     "Starting": "正在启动",
+    "1M High": "1M 高",
+    "High Fast": "高 快速",
     "Extra High Fast": "超高 快速",
+    "Max": "最高",
     "MCPs": "MCP",
-    "Worktree environment": "Worktree 环境",
+    "Worktree environment": "工作树环境",
     "Send follow-up": "发送追问",
     "Set up Environment": "设置环境",
+
     "_第五次 collect 补充（diff 视图 / 图片 / 动作面板）": "",
     "Select line range": "选择行范围",
     "Collapse card": "折叠卡片",
@@ -1670,20 +1720,20 @@
     "Image preview": "图片预览",
     "Open Plugins": "打开插件",
     "Open MCPs": "打开 MCP",
-    "Open Skills": "打开 Skills",
-    "Open Subagents": "打开 Subagent",
+    "Open Skills": "打开技能",
+    "Open Subagents": "打开子代理",
     "Open Rules": "打开规则",
     "Open Commands": "打开命令",
-    "Open Hooks": "打开 Hooks",
+    "Open Hooks": "打开钩子",
     "Open Automations": "打开自动化",
-    "Agents of New Project": "「新建项目」的 Agent",
+    "Agents of New Project": "「新建项目」的智能体",
     "Recent Actions": "最近操作",
     "Type to search actions": "输入以搜索操作",
     "Search actions...": "搜索操作...",
     "Search Cursor settings…": "搜索 Cursor 设置…",
-    "Plan Mode": "Plan 模式",
-    "Ask Mode": "Ask 模式",
-    "Debug Mode": "Debug 模式",
+    "Plan Mode": "计划模式",
+    "Ask Mode": "询问模式",
+    "Debug Mode": "调试模式",
     "Multitask Mode": "多任务模式",
     "Toggle Git Blame": "切换 Git Blame",
     "Update Cursor": "更新 Cursor",
@@ -1704,7 +1754,7 @@
     "Workspace Diagnostics": "工作区诊断",
     "Connect via WSL": "通过 WSL 连接",
     "Open SSH Configuration File": "打开 SSH 配置文件",
-    "New Agent with Model": "使用指定模型新建 Agent",
+    "New Agent with Model": "使用指定模型新建智能体",
     "Expand Project": "展开项目",
     "Collapse Project": "折叠项目",
     "Group by Workspace": "按工作区分组",
@@ -1715,7 +1765,7 @@
     "Filter results": "筛选结果",
     "Change list scope — Last Agent Turn": "更改列表范围 — 最近一轮智能体",
     "Copy Branch": "复制分支",
-    "Create Branch & Commit": "创建分支并 Commit",
+    "Create Branch & Commit": "创建分支并提交",
     "Create repo": "创建仓库",
     "Summarized conversation": "已总结对话",
     "Grepping": "正在 Grep 搜索",
@@ -1732,6 +1782,7 @@
     "Included in": "包含于",
     "Total": "总计",
     "Subscriptions": "订阅",
+    "Fixed": "固定",
     "Unlimited": "无限制",
     "Share Data": "共享数据",
     "Improve Cursor for everyone": "帮助改进 Cursor",
@@ -1739,10 +1790,13 @@
     "Build in Cloud": "在云端构建",
     "Build Locally": "本地构建",
     "Built": "已构建",
-    "Fullscreen agent prompt": "全屏 Agent 提示词",
+    "Fullscreen agent prompt": "全屏智能体提示词",
     "Expand to fullscreen": "展开到全屏",
     "Drop here to attach...": "拖到此处以附加...",
+    "1M Medium": "1M 中",
+    "No Thinking": "无思考",
     "1M Medium No Thinking": "1M 中 无思考",
+
     "_第五次 collect 补充（端口 / 浏览器）": "",
     "Forwarded Ports": "已转发的端口",
     "Forwarded ports": "已转发的端口",
@@ -1763,6 +1817,7 @@
     "Clear Browsing History": "清除浏览历史",
     "Clear Cookies": "清除 Cookie",
     "Clear Cache": "清除缓存",
+
     "_第五次 collect 补充（API 密钥）": "",
     "OpenAI API Key": "OpenAI API 密钥",
     "OpenAI API key": "OpenAI API 密钥",
@@ -1788,6 +1843,7 @@
     "Test Model": "测试模型",
     "Enter API key": "输入 API 密钥",
     "Change the base URL for OpenAI API requests.": "更改 OpenAI API 请求的基础 URL。",
+
     "_第五次 collect 补充（自动化模板）": "",
     "PR Comment": "PR 评论",
     "PR opened": "PR 已打开",
@@ -1817,12 +1873,13 @@
     "Summarize changes daily": "每日总结变更",
     "Investigate environment setup failures": "调查环境设置失败",
     "Monitor environment build health": "监控环境构建健康度",
-    "Environment Setup Agent": "环境设置 Agent",
-    "Customer Health Monitoring Agent": "客户健康监控 Agent",
-    "Product Analytics Agent": "产品分析 Agent",
-    "Product FAQ Agent": "产品 FAQ Agent",
-    "Product Finance Agent": "产品财务 Agent",
-    "Slack Digest Agent": "Slack 摘要 Agent",
+    "Environment Setup Agent": "环境设置智能体",
+    "Customer Health Monitoring Agent": "客户健康监控智能体",
+    "Product Analytics Agent": "产品分析智能体",
+    "Product FAQ Agent": "产品 FAQ 智能体",
+    "Product Finance Agent": "产品财务智能体",
+    "Slack Digest Agent": "Slack 摘要智能体",
+
     "_第六次 collect 补充（文档 / 命令 / 播放器）": "",
     "Cursor Logo": "Cursor 标志",
     "Try in Cursor": "在 Cursor 中试用",
@@ -1866,16 +1923,25 @@
     "Enter Command Name": "输入命令名称",
     "Enter a name for the new subagent": "输入新子代理的名称",
     "Please enter a name for the new command": "请输入新命令的名称",
-    "New User Subagent": "新建用户 Subagent",
-    "No linked agents": "没有关联的 Agent",
+    "New User Subagent": "新建用户子代理",
+    "No linked agents": "没有关联的智能体",
     "Style request, response language, tone...": "风格要求、回复语言、语气...",
+    "number": "数字",
+    "boolean": "布尔",
+    "array": "数组",
+    "string (optional)": "字符串（可选）",
+    "array (optional)": "数组（可选）",
+    "object (optional)": "对象（可选）",
+    "string[]": "字符串数组",
+    "Error NaN": "错误 NaN",
     "Other Fonts": "其他字体",
     "No matching fonts": "没有匹配的字体",
+
     "_第六次 collect 补充（设置 / 远程 / 状态）": "",
     "Team Settings": "团队设置",
     "Security & Identity": "安全与身份",
-    "Customize → Skills": "自定义 → Skills",
-    "Settings → agents": "设置 → Agent",
+    "Customize → Skills": "自定义 → 技能",
+    "Settings → agents": "设置 → 智能体",
     "GitHub repository connection": "GitHub 仓库连接",
     "Clear today": "清除今天",
     "Clear last 7 days": "清除最近 7 天",
@@ -1896,13 +1962,13 @@
     "Show Logs": "显示日志",
     "Hide Logs": "隐藏日志",
     "API requests": "API 请求",
-    "Agent requests": "Agent 请求",
+    "Agent requests": "智能体请求",
     "Training telemetry": "训练遥测",
-    "Agent Endpoint": "Agent 端点",
+    "Agent Endpoint": "智能体端点",
     "Marketplace CDN": "市场 CDN",
     "Client updates": "客户端更新",
     "Cursor Tab (regional)": "Cursor Tab（区域）",
-    "Moving agent…": "正在移动 Agent…",
+    "Moving agent…": "正在移动智能体…",
     "Changing environment": "正在切换环境",
     "This PC (Remote Control) environment": "此电脑（远程控制）环境",
     "Show full command output": "显示完整命令输出",
@@ -1912,6 +1978,7 @@
     "Run in Cloud": "在云端运行",
     "Change list scope — All Commits": "更改列表范围 — 全部提交",
     "Print local host identity and time": "打印本机标识与时间",
+
     "_第六次 collect 补充（插件市场）": "",
     "Cursor Marketplace": "Cursor 市场",
     "Add Marketplace": "添加市场",
@@ -1923,7 +1990,7 @@
     "Data & Analytics": "数据与分析",
     "Productivity": "效率",
     "Payments": "支付",
-    "Agent Orchestration": "Agent 编排",
+    "Agent Orchestration": "智能体编排",
     "Inbox and Collaboration": "收件箱与协作",
     "Scheduling": "日程",
     "Documents and Files": "文档与文件",
@@ -1932,9 +1999,9 @@
     "Finance and Legal": "财务与法务",
     "Research": "研究",
     "Design": "设计",
-    "CLI for Agents": "面向 Agent 的命令行",
-    "Docs Canvas": "文档 Canvas",
-    "PR Review Canvas": "PR 审查 Canvas",
+    "CLI for Agents": "面向智能体的命令行",
+    "Docs Canvas": "文档画布",
+    "PR Review Canvas": "PR 审查画布",
     "Render documentation as a navigable canvas.": "把文档渲染为可导航的画布。",
     "Render PR diffs as review canvases grouped by importance.": "按重要性分组，把 PR 差异渲染为审查画布。",
     "Search, read, draft, and manage email.": "搜索、阅读、起草和管理邮件。",
@@ -1969,17 +2036,18 @@
     "Query S&P Capital IQ financials, prices, and transcripts.": "查询 S&P Capital IQ 的财务数据、价格和文字记录。",
     "Persistent AI memory for Cursor — powered by Supermemory": "Cursor 的持久 AI 记忆 — 由 Supermemory 提供",
     "Artie real-time CDC pipelines via MCP": "通过 MCP 使用 Artie 实时 CDC 管道",
+
     "_第七次 collect 补充（画布 / 对话）": "",
-    "Loading Canvas": "正在加载 Canvas",
-    "Loading Canvases": "正在加载 Canvas",
+    "Loading Canvas": "正在加载画布",
+    "Loading Canvases": "正在加载画布",
     "Loading file": "正在加载文件",
-    "Create new canvas": "新建 Canvas",
-    "Share canvas": "分享 Canvas",
-    "Show canvas list": "显示 Canvas 列表",
-    "Resize canvas list": "调整 Canvas 列表大小",
-    "Canvas list": "Canvas 列表",
-    "Canvas preview": "Canvas 预览",
-    "Dismiss canvas preview": "关闭 Canvas 预览",
+    "Create new canvas": "新建画布",
+    "Share canvas": "分享画布",
+    "Show canvas list": "显示画布列表",
+    "Resize canvas list": "调整画布列表大小",
+    "Canvas list": "画布列表",
+    "Canvas preview": "画布预览",
+    "Dismiss canvas preview": "关闭画布预览",
     "Wait for the canvas to finish loading before sharing": "分享前请等待画布加载完成",
     "Switch to source view": "切换到源码视图",
     "Markdown view": "Markdown 视图",
@@ -1996,662 +2064,205 @@
     "Select Environment": "选择环境",
     "Try Cloud": "试用云端",
     "Multiple worktrees detected in this repo": "此仓库中检测到多个工作树",
+
     "_第八次 collect 补充": "",
     "Environment ready": "环境已就绪",
     "Dismiss error": "关闭错误",
     "Too many computers.": "计算机数量过多。",
     "Copy ID": "复制 ID",
-    "Agent encountered an error": "Agent 遇到错误",
+    "Agent encountered an error": "智能体遇到错误",
     "Update: restart Cursor to install": "更新：重启 Cursor 以安装",
-    "Agent branches": "Agent 分支",
+    "Agent branches": "智能体分支",
     "Unarchive": "取消归档",
     "From Web": "来自网页",
     "Move agent while it’s working?": "智能体仍在工作时移动它？",
     "Stop and Move": "停止并移动",
-    "Show system notifications when Agent completes or needs attention": "Agent 完成或需要关注时显示系统通知",
-    "Also show the approval banner while Cursor is focused; the request card in the agent conversation always shows": "Cursor 窗口聚焦时也显示批准横幅；智能体对话中的请求卡片始终显示",
-    "Thought briefly": "简短思考",
-    "briefly": "片刻",
-    "Worked briefly": "简短处理"
+
+    "_第九次 collect 补充": "",
+    "Reconnecting...": "正在重新连接...",
+    "messages below": "以下消息",
+    "Fetching page": "正在获取页面",
+
+    "_第十次 collect 补充": "",
+    "Unable to load this step.": "无法加载此步骤。",
+    "Plan ending soon": "计划即将结束",
+    "Manage Billing": "管理账单",
+    "Dismiss pending cancellation banner": "关闭待取消提示",
+
+    "_第十一次 collect 补充": "",
+    "Summarize this conversation": "总结此对话",
+    "Summarizing chat context": "正在总结对话上下文",
+    "You cannot summarize while the agent is still working.": "智能体仍在工作时无法总结。",
+    "Preview of summarize": "「总结」预览",
+    "Slash commands": "斜杠命令",
+    "Add a plugin to this agent": "向此智能体添加插件",
+    "Review code instead of editing it": "审查代码而不直接修改",
+    "Commit the current changes": "提交当前更改",
+    "Revert files to this message?": "将文件还原到这条消息？",
+    "Don't Ask Again": "不再询问",
+    "Keep Files": "保留文件",
+    "Revert Files": "还原文件",
+    "Always revert": "始终还原"
   },
   "patterns": [
-    {
-      "match": "^Thought for (\\d+(?:\\.\\d+)?)\\s*(?:s|sec|secs|seconds?)$",
-      "replace": "思考了 $1 秒"
-    },
-    {
-      "match": "^Thought for (\\d+(?:\\.\\d+)?)\\s*(?:m|min|mins|minutes?)$",
-      "replace": "思考了 $1 分钟"
-    },
-    {
-      "match": "^Thought for (\\d+)m\\s*(\\d+)s$",
-      "replace": "思考了 $1 分 $2 秒"
-    },
-    {
-      "match": "^Worked for (\\d+(?:\\.\\d+)?)\\s*(?:s|sec|secs|seconds?)$",
-      "replace": "工作了 $1 秒"
-    },
-    {
-      "match": "^Worked for (\\d+(?:\\.\\d+)?)\\s*(?:m|min|mins|minutes?)$",
-      "replace": "工作了 $1 分钟"
-    },
-    {
-      "match": "^Running for (\\d+)\\s*s$",
-      "replace": "已运行 $1 秒"
-    },
-    {
-      "match": "^(\\d+) files? changed$",
-      "replace": "$1 个文件已更改"
-    },
-    {
-      "match": "^(\\d+) files?$",
-      "replace": "$1 个文件"
-    },
-    {
-      "match": "^(\\d+) folders?$",
-      "replace": "$1 个文件夹"
-    },
-    {
-      "match": "^(\\d+) lines?$",
-      "replace": "$1 行"
-    },
-    {
-      "match": "^(\\d+) additions?$",
-      "replace": "$1 处新增"
-    },
-    {
-      "match": "^(\\d+) deletions?$",
-      "replace": "$1 处删除"
-    },
-    {
-      "match": "^(\\d+) results?$",
-      "replace": "$1 个结果"
-    },
-    {
-      "match": "^(\\d+) matches$",
-      "replace": "$1 个匹配"
-    },
-    {
-      "match": "^(\\d+) match$",
-      "replace": "$1 个匹配"
-    },
-    {
-      "match": "^(\\d+) items?$",
-      "replace": "$1 项"
-    },
-    {
-      "match": "^(\\d+) tool calls?$",
-      "replace": "$1 次工具调用"
-    },
-    {
-      "match": "^(\\d+) changes?$",
-      "replace": "$1 处更改"
-    },
-    {
-      "match": "^(\\d+) unread$",
-      "replace": "$1 条未读"
-    },
-    {
-      "match": "^(\\d+) pending$",
-      "replace": "$1 项待处理"
-    },
-    {
-      "match": "^(\\d+) requests?$",
-      "replace": "$1 次请求"
-    },
-    {
-      "match": "^(\\d+) of (\\d+)$",
-      "replace": "$1 / $2"
-    },
-    {
-      "match": "^Step (\\d+) of (\\d+)$",
-      "replace": "第 $1 步，共 $2 步"
-    },
-    {
-      "match": "^Step (\\d+)$",
-      "replace": "第 $1 步"
-    },
-    {
-      "match": "^Line (\\d+)$",
-      "replace": "第 $1 行"
-    },
-    {
-      "match": "^Lines (\\d+)\\s*[-–]\\s*(\\d+)$",
-      "replace": "第 $1-$2 行"
-    },
-    {
-      "match": "^(\\d+)% used$",
-      "replace": "已使用 $1%"
-    },
-    {
-      "match": "^Version (\\S+)$",
-      "replace": "版本 $1"
-    },
-    {
-      "match": "^Exit code:? (\\d+)$",
-      "replace": "退出码 $1"
-    },
-    {
-      "match": "^Read (\\d+) files?$",
-      "replace": "已读取 $1 个文件"
-    },
-    {
-      "match": "^Edited (\\d+) files?$",
-      "replace": "已编辑 $1 个文件"
-    },
-    {
-      "match": "^Searched (\\d+) files?$",
-      "replace": "已搜索 $1 个文件"
-    },
-    {
-      "match": "^Listed (\\d+) items?$",
-      "replace": "已列出 $1 项"
-    },
-    {
-      "match": "^Accept (\\d+) files?$",
-      "replace": "接受 $1 个文件"
-    },
-    {
-      "match": "^Reject (\\d+) files?$",
-      "replace": "拒绝 $1 个文件"
-    },
-    {
-      "match": "^Keep (\\d+) files?$",
-      "replace": "保留 $1 个文件"
-    },
-    {
-      "match": "^Undo (\\d+) files?$",
-      "replace": "撤销 $1 个文件"
-    },
-    {
-      "match": "^Review (\\d+) files?$",
-      "replace": "审查 $1 个文件"
-    },
-    {
-      "match": "^Searched codebase for \"(.+)\"$",
-      "replace": "已在代码库中搜索 \"$1\""
-    },
-    {
-      "match": "^Searched web for \"(.+)\"$",
-      "replace": "已搜索网页 \"$1\""
-    },
-    {
-      "match": "^Grepped \"(.+)\"$",
-      "replace": "已 Grep 搜索 \"$1\""
-    },
-    {
-      "match": "^Read ([\\w-]+(?:[./\\\\][\\w.-]+)+)$",
-      "replace": "已读取 $1"
-    },
-    {
-      "match": "^Edited ([\\w-]+(?:[./\\\\][\\w.-]+)+)$",
-      "replace": "已编辑 $1"
-    },
-    {
-      "match": "^Created ([\\w-]+(?:[./\\\\][\\w.-]+)+)$",
-      "replace": "已创建 $1"
-    },
-    {
-      "match": "^Deleted ([\\w-]+(?:[./\\\\][\\w.-]+)+)$",
-      "replace": "已删除 $1"
-    },
-    {
-      "match": "^Listed ([\\w-]+(?:[./\\\\][\\w.-]+)*)$",
-      "replace": "已列出 $1"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:seconds?|secs?|s) ago$",
-      "replace": "$1 秒前"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:minutes?|mins?|m) ago$",
-      "replace": "$1 分钟前"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:hours?|hrs?|h) ago$",
-      "replace": "$1 小时前"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:days?|d) ago$",
-      "replace": "$1 天前"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:weeks?|wks?|w) ago$",
-      "replace": "$1 周前"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:months?|mo) ago$",
-      "replace": "$1 个月前"
-    },
-    {
-      "match": "^(\\d+)\\s*(?:years?|yrs?|y) ago$",
-      "replace": "$1 年前"
-    },
-    {
-      "match": "^Updated (\\d+)\\s*(?:minutes?|mins?|m) ago$",
-      "replace": "$1 分钟前更新"
-    },
-    {
-      "match": "^Updated (\\d+)\\s*(?:hours?|hrs?|h) ago$",
-      "replace": "$1 小时前更新"
-    },
-    {
-      "match": "^Updated (\\d+)\\s*(?:days?|d) ago$",
-      "replace": "$1 天前更新"
-    },
-    {
-      "match": "^Edited (\\d+)\\s*(?:minutes?|mins?|m) ago$",
-      "replace": "$1 分钟前编辑"
-    },
-    {
-      "match": "^Edited (\\d+)\\s*(?:hours?|hrs?|h) ago$",
-      "replace": "$1 小时前编辑"
-    },
-    {
-      "match": "^Edited (\\d+)\\s*(?:days?|d) ago$",
-      "replace": "$1 天前编辑"
-    },
-    {
-      "match": "^Resets in (\\d+) days?$",
-      "replace": "$1 天后重置"
-    },
-    {
-      "match": "^Resets (.+)$",
-      "replace": "重置于 $1"
-    },
-    {
-      "match": "^for (\\d+)h (\\d+)m$",
-      "replace": "$1 小时 $2 分"
-    },
-    {
-      "match": "^for (\\d+)m (\\d+)s$",
-      "replace": "$1 分 $2 秒"
-    },
-    {
-      "match": "^for (\\d+)h$",
-      "replace": "$1 小时"
-    },
-    {
-      "match": "^for (\\d+)m$",
-      "replace": "$1 分钟"
-    },
-    {
-      "match": "^for (\\d+(?:\\.\\d+)?)s$",
-      "replace": "$1 秒"
-    },
-    {
-      "match": "^Context (\\d+)%$",
-      "replace": "上下文 $1%"
-    },
-    {
-      "match": "^(\\d+) Files? Changed$",
-      "replace": "$1 个文件已更改"
-    },
-    {
-      "match": "^(\\d+) Terminals?$",
-      "replace": "$1 个终端"
-    },
-    {
-      "match": "^(\\d+) days? left$",
-      "replace": "剩余 $1 天"
-    },
-    {
-      "match": "^Go to Chat (\\d+)$",
-      "replace": "转到对话 $1"
-    },
-    {
-      "match": "^(\\d+)mo$",
-      "replace": "$1 个月"
-    },
-    {
-      "match": "^(\\d+)w$",
-      "replace": "$1 周"
-    },
-    {
-      "match": "^(\\d+)d$",
-      "replace": "$1 天"
-    },
-    {
-      "match": "^(\\d+)h$",
-      "replace": "$1 小时"
-    },
-    {
-      "match": "^(\\d+)y$",
-      "replace": "$1 年"
-    },
-    {
-      "match": "^Close (powershell|pwsh|cmd|bash|zsh|sh|node|python)$",
-      "replace": "关闭 $1"
-    },
-    {
-      "match": "^Worked for (\\d+)h (\\d+)m$",
-      "replace": "工作了 $1 小时 $2 分"
-    },
-    {
-      "match": "^Worked for (\\d+)m (\\d+)s$",
-      "replace": "工作了 $1 分 $2 秒"
-    },
-    {
-      "match": "^Worked for (\\d+(?:\\.\\d+)?)s$",
-      "replace": "工作了 $1 秒"
-    },
-    {
-      "match": "^Worked for (\\d+)m$",
-      "replace": "工作了 $1 分钟"
-    },
-    {
-      "match": "^(\\d+) files?, ran (\\d+) commands? \\+(\\d+) -(\\d+)$",
-      "replace": "$1 个文件，运行了 $2 条命令 +$3 -$4"
-    },
-    {
-      "match": "^(\\d+) files?, ran (\\d+) commands?$",
-      "replace": "$1 个文件，运行了 $2 条命令"
-    },
-    {
-      "match": "^(\\d+) files?, explored (\\d+) files? \\+(\\d+) -(\\d+)$",
-      "replace": "$1 个文件，探索了 $2 个文件 +$3 -$4"
-    },
-    {
-      "match": "^(\\d+) files?, explored (\\d+) files?$",
-      "replace": "$1 个文件，探索了 $2 个文件"
-    },
-    {
-      "match": "^(\\d+) files? \\+(\\d+) -(\\d+)$",
-      "replace": "$1 个文件 +$2 -$3"
-    },
-    {
-      "match": "^ran (\\d+) commands?$",
-      "replace": "运行了 $1 条命令"
-    },
-    {
-      "match": "^explored (\\d+) files?$",
-      "replace": "探索了 $1 个文件"
-    },
-    {
-      "match": "^(\\d+) commands?$",
-      "replace": "$1 条命令"
-    },
-    {
-      "match": "^Ran ([a-z].*)$",
-      "replace": "已运行 $1"
-    },
-    {
-      "match": "^Editing (\\S+\\.\\w+)$",
-      "replace": "正在编辑 $1"
-    },
-    {
-      "match": "^Editing (\\S+\\.\\w+)\\. Open activity$",
-      "replace": "正在编辑 $1。打开活动"
-    },
-    {
-      "match": "^Remove (.+)$",
-      "replace": "移除 $1"
-    },
-    {
-      "match": "^(\\d+) searche?s?$",
-      "replace": "$1 次搜索"
-    },
-    {
-      "match": "^(\\d+) fetches$",
-      "replace": "$1 次获取"
-    },
-    {
-      "match": "^explored (\\d+) searche?s?$",
-      "replace": "探索了 $1 次搜索"
-    },
-    {
-      "match": "^(\\d+) background tasks?$",
-      "replace": "$1 个后台任务"
-    },
-    {
-      "match": "^(\\d+) Terminals? Running$",
-      "replace": "$1 个终端运行中"
-    },
-    {
-      "match": "^Open terminals \\((\\d+)\\)$",
-      "replace": "打开的终端 ($1)"
-    },
-    {
-      "match": "^(\\d+) To-dos?$",
-      "replace": "$1 项待办"
-    },
-    {
-      "match": "^Plan progress: (\\d+) To-dos?$",
-      "replace": "计划进度：$1 项待办"
-    },
-    {
-      "match": "^Completed (\\d+) of (\\d+) to-dos$",
-      "replace": "已完成 $1 / $2 项待办"
-    },
-    {
-      "match": "^Completed (\\d+) of (\\d+)$",
-      "replace": "已完成 $1 / $2"
-    },
-    {
-      "match": "^Show (\\d+) more$",
-      "replace": "显示更多 $1 项"
-    },
-    {
-      "match": "^(\\d+)% Full$",
-      "replace": "已用 $1%"
-    },
-    {
-      "match": "^(\\d+)k context window$",
-      "replace": "$1k 上下文窗口"
-    },
-    {
-      "match": "^Context usage by category: ~?([\\d.]+[KM]?) of ([\\d.]+[KM]?) tokens used$",
-      "replace": "按类别的上下文用量：已使用 $1 / $2 tokens"
-    },
-    {
-      "match": "^(.+) parameters$",
-      "replace": "$1 参数"
-    },
-    {
-      "match": "^(.+) options$",
-      "replace": "$1 选项"
-    },
-    {
-      "match": "^(.+) demo$",
-      "replace": "$1 演示"
-    },
-    {
-      "match": "^Configure (.+)$",
-      "replace": "配置 $1"
-    },
-    {
-      "match": "^Use (.+) template$",
-      "replace": "使用「$1」模板"
-    },
-    {
-      "match": "^New Agent in (.+)$",
-      "replace": "在 $1 中新建智能体"
-    },
-    {
-      "match": "^Branch (.+), open branch menu$",
-      "replace": "分支 $1，打开分支菜单"
-    },
-    {
-      "match": "^Branch (.+), click to copy$",
-      "replace": "分支 $1，点击复制"
-    },
-    {
-      "match": "^(.+), switch branch$",
-      "replace": "$1，切换分支"
-    },
-    {
-      "match": "^Waiting up to (\\d+)m (\\d+)s for shell$",
-      "replace": "等待 shell 最多 $1 分 $2 秒"
-    },
-    {
-      "match": "^Waiting up to (\\d+)m for shell$",
-      "replace": "等待 shell 最多 $1 分钟"
-    },
-    {
-      "match": "^Waiting up to (\\d+)s for shell$",
-      "replace": "等待 shell 最多 $1 秒"
-    },
-    {
-      "match": "^Reading (\\S+)$",
-      "replace": "正在读取 $1"
-    },
-    {
-      "match": "^Editing (\\S+)$",
-      "replace": "正在编辑 $1"
-    },
-    {
-      "match": "^Using ([\\w.-]+)$",
-      "replace": "正在使用 $1"
-    },
-    {
-      "match": "^Running (.+)$",
-      "replace": "正在运行 $1"
-    },
-    {
-      "match": "^Searching (.+)$",
-      "replace": "正在搜索 $1"
-    },
-    {
-      "match": "^(.+) enabled$",
-      "replace": "$1 已启用"
-    },
-    {
-      "match": "^(.+) disabled$",
-      "replace": "$1 已禁用"
-    },
-    {
-      "match": "^Panel (.+)$",
-      "replace": "面板 $1"
-    },
-    {
-      "match": "^Keybinding: (.+)$",
-      "replace": "快捷键：$1"
-    },
-    {
-      "match": "^\\[(\\d+) lines? collapsed\\]$",
-      "replace": "[已折叠 $1 行]"
-    },
-    {
-      "match": "^(\\d+) unmodified lines?$",
-      "replace": "$1 行未修改"
-    },
-    {
-      "match": "^Expand (\\d+) unmodified lines?$",
-      "replace": "展开 $1 行未修改内容"
-    },
-    {
-      "match": "^Waiting (\\d+)m (\\d+)s$",
-      "replace": "等待 $1 分 $2 秒"
-    },
-    {
-      "match": "^Waiting (\\d+)m$",
-      "replace": "等待 $1 分钟"
-    },
-    {
-      "match": "^Waiting (\\d+)s$",
-      "replace": "等待 $1 秒"
-    },
-    {
-      "match": "^Reading (\\S+) L(\\d+)-(\\d+)$",
-      "replace": "正在读取 $1 第 $2-$3 行"
-    },
-    {
-      "match": "^Today (\\d{1,2}:\\d{2})$",
-      "replace": "今天 $1"
-    },
-    {
-      "match": "^Yesterday (\\d{1,2}:\\d{2})$",
-      "replace": "昨天 $1"
-    },
-    {
-      "match": "^Side Chat · (.+)$",
-      "replace": "侧边对话 · $1"
-    },
-    {
-      "match": "^Agents of (.+)$",
-      "replace": "「$1」的智能体"
-    },
-    {
-      "match": "^Last (\\d+) [Dd]ays$",
-      "replace": "最近 $1 天"
-    },
-    {
-      "match": "^Copy link to (.+)$",
-      "replace": "复制指向 $1 的链接"
-    },
-    {
-      "match": "^Auto \\((.+)\\)$",
-      "replace": "自动（$1）"
-    },
-    {
-      "match": "^Playback rate (.+)$",
-      "replace": "播放速度 $1"
-    },
-    {
-      "match": "^Tab (\\d+)$",
-      "replace": "标签页 $1"
-    },
-    {
-      "match": "^(\\d+) worktrees?$",
-      "replace": "$1 个工作树"
-    },
-    {
-      "match": "^seek back (\\d+) seconds$",
-      "replace": "后退 $1 秒",
-      "flags": "i"
-    },
-    {
-      "match": "^seek forward (\\d+) seconds$",
-      "replace": "前进 $1 秒",
-      "flags": "i"
-    },
-    {
-      "match": "^e\\.g\\., (.+)$",
-      "replace": "例如，$1"
-    },
-    {
-      "match": "^temporary workspace ⋅ (.+)$",
-      "replace": "临时工作区 ⋅ $1"
-    },
-    {
-      "match": "^workspace ⋅ (.+)$",
-      "replace": "工作区 ⋅ $1"
-    },
-    {
-      "match": "^Delete (.+)$",
-      "replace": "删除 $1"
-    },
-    {
-      "match": "^(\\d+) more$",
-      "replace": "还有 $1 项"
-    },
-    {
-      "match": "^Close (.+)$",
-      "replace": "关闭 $1"
-    },
-    {
-      "match": "^Prompt, tile (\\d+)$",
-      "replace": "提示词，磁贴 $1"
-    },
-    {
-      "match": "^(\\d+(?:\\.\\d+)?)s$",
-      "replace": "$1 秒"
-    },
-    {
-      "match": "^(\\d+)m (\\d+)s$",
-      "replace": "$1 分 $2 秒"
-    },
-    {
-      "match": "^(\\d+)m$",
-      "replace": "$1 分钟"
-    },
-    {
-      "match": "^(\\d+)h (\\d+)m$",
-      "replace": "$1 小时 $2 分"
-    },
-    {
-      "match": "^(\\d+)ms$",
-      "replace": "$1 毫秒"
-    }
+    { "match": "^Thought for (\\d+(?:\\.\\d+)?)\\s*(?:s|sec|secs|seconds?)$", "replace": "思考了 $1 秒" },
+    { "match": "^Thought for (\\d+(?:\\.\\d+)?)\\s*(?:m|min|mins|minutes?)$", "replace": "思考了 $1 分钟" },
+    { "match": "^Thought for (\\d+)m\\s*(\\d+)s$", "replace": "思考了 $1 分 $2 秒" },
+    { "match": "^Worked for (\\d+(?:\\.\\d+)?)\\s*(?:s|sec|secs|seconds?)$", "replace": "处理了 $1 秒" },
+    { "match": "^Worked for (\\d+(?:\\.\\d+)?)\\s*(?:m|min|mins|minutes?)$", "replace": "处理了 $1 分钟" },
+    { "match": "^Running for (\\d+)\\s*s$", "replace": "已运行 $1 秒" },
+    { "match": "^(\\d+) files? changed$", "replace": "$1 个文件已更改" },
+    { "match": "^(\\d+) files?$", "replace": "$1 个文件" },
+    { "match": "^(\\d+) folders?$", "replace": "$1 个文件夹" },
+    { "match": "^(\\d+) lines?$", "replace": "$1 行" },
+    { "match": "^(\\d+) additions?$", "replace": "$1 处新增" },
+    { "match": "^(\\d+) deletions?$", "replace": "$1 处删除" },
+    { "match": "^(\\d+) results?$", "replace": "$1 个结果" },
+    { "match": "^(\\d+) matches$", "replace": "$1 个匹配" },
+    { "match": "^(\\d+) match$", "replace": "$1 个匹配" },
+    { "match": "^(\\d+) items?$", "replace": "$1 项" },
+    { "match": "^(\\d+) tool calls?$", "replace": "$1 次工具调用" },
+    { "match": "^(\\d+) changes?$", "replace": "$1 处更改" },
+    { "match": "^(\\d+) unread$", "replace": "$1 条未读" },
+    { "match": "^(\\d+) pending$", "replace": "$1 项待处理" },
+    { "match": "^(\\d+) requests?$", "replace": "$1 次请求" },
+    { "match": "^(\\d+) of (\\d+)$", "replace": "$1 / $2" },
+    { "match": "^Step (\\d+) of (\\d+)$", "replace": "第 $1 步，共 $2 步" },
+    { "match": "^Step (\\d+)$", "replace": "第 $1 步" },
+    { "match": "^Line (\\d+)$", "replace": "第 $1 行" },
+    { "match": "^Lines (\\d+)\\s*[-–]\\s*(\\d+)$", "replace": "第 $1-$2 行" },
+    { "match": "^(\\d+)% used$", "replace": "已使用 $1%" },
+    { "match": "^Version (\\S+)$", "replace": "版本 $1" },
+    { "match": "^Exit code:? (\\d+)$", "replace": "退出码 $1" },
+    { "match": "^Read (\\d+) files?$", "replace": "已读取 $1 个文件" },
+    { "match": "^Edited (\\d+) files?$", "replace": "已编辑 $1 个文件" },
+    { "match": "^Searched (\\d+) files?$", "replace": "已搜索 $1 个文件" },
+    { "match": "^Listed (\\d+) items?$", "replace": "已列出 $1 项" },
+    { "match": "^Accept (\\d+) files?$", "replace": "接受 $1 个文件" },
+    { "match": "^Reject (\\d+) files?$", "replace": "拒绝 $1 个文件" },
+    { "match": "^Keep (\\d+) files?$", "replace": "保留 $1 个文件" },
+    { "match": "^Undo (\\d+) files?$", "replace": "撤销 $1 个文件" },
+    { "match": "^Review (\\d+) files?$", "replace": "审查 $1 个文件" },
+    { "match": "^Searched codebase for \"(.+)\"$", "replace": "已在代码库中搜索 \"$1\"" },
+    { "match": "^Searched web for \"(.+)\"$", "replace": "已搜索网页 \"$1\"" },
+    { "match": "^Grepped \"(.+)\"$", "replace": "已 Grep 搜索 \"$1\"" },
+    { "match": "^Read ([\\w-]+(?:[./\\\\][\\w.-]+)+)$", "replace": "已读取 $1" },
+    { "match": "^Edited ([\\w-]+(?:[./\\\\][\\w.-]+)+)$", "replace": "已编辑 $1" },
+    { "match": "^Created ([\\w-]+(?:[./\\\\][\\w.-]+)+)$", "replace": "已创建 $1" },
+    { "match": "^Deleted ([\\w-]+(?:[./\\\\][\\w.-]+)+)$", "replace": "已删除 $1" },
+    { "match": "^Listed ([\\w-]+(?:[./\\\\][\\w.-]+)*)$", "replace": "已列出 $1" },
+    { "match": "^(\\d+)\\s*(?:seconds?|secs?|s) ago$", "replace": "$1 秒前" },
+    { "match": "^(\\d+)\\s*(?:minutes?|mins?|m) ago$", "replace": "$1 分钟前" },
+    { "match": "^(\\d+)\\s*(?:hours?|hrs?|h) ago$", "replace": "$1 小时前" },
+    { "match": "^(\\d+)\\s*(?:days?|d) ago$", "replace": "$1 天前" },
+    { "match": "^(\\d+)\\s*(?:weeks?|wks?|w) ago$", "replace": "$1 周前" },
+    { "match": "^(\\d+)\\s*(?:months?|mo) ago$", "replace": "$1 个月前" },
+    { "match": "^(\\d+)\\s*(?:years?|yrs?|y) ago$", "replace": "$1 年前" },
+    { "match": "^Updated (\\d+)\\s*(?:minutes?|mins?|m) ago$", "replace": "$1 分钟前更新" },
+    { "match": "^Updated (\\d+)\\s*(?:hours?|hrs?|h) ago$", "replace": "$1 小时前更新" },
+    { "match": "^Updated (\\d+)\\s*(?:days?|d) ago$", "replace": "$1 天前更新" },
+    { "match": "^Edited (\\d+)\\s*(?:minutes?|mins?|m) ago$", "replace": "$1 分钟前编辑" },
+    { "match": "^Edited (\\d+)\\s*(?:hours?|hrs?|h) ago$", "replace": "$1 小时前编辑" },
+    { "match": "^Edited (\\d+)\\s*(?:days?|d) ago$", "replace": "$1 天前编辑" },
+    { "match": "^Resets in (\\d+) days?$", "replace": "$1 天后重置" },
+    { "match": "^Resets (.+)$", "replace": "重置于 $1" },
+    { "match": "^for (\\d+)h (\\d+)m$", "replace": "$1 小时 $2 分" },
+    { "match": "^for (\\d+)m (\\d+)s$", "replace": "$1 分 $2 秒" },
+    { "match": "^for (\\d+)h$", "replace": "$1 小时" },
+    { "match": "^for (\\d+)m$", "replace": "$1 分钟" },
+    { "match": "^for (\\d+(?:\\.\\d+)?)s$", "replace": "$1 秒" },
+    { "match": "^Context (\\d+)%$", "replace": "上下文 $1%" },
+    { "match": "^(\\d+)% used$", "replace": "已使用 $1%" },
+    { "match": "^(\\d+) Files? Changed$", "replace": "$1 个文件已更改" },
+    { "match": "^(\\d+) Terminals?$", "replace": "$1 个终端" },
+    { "match": "^(\\d+) days? left$", "replace": "剩余 $1 天" },
+    { "match": "^Go to Chat (\\d+)$", "replace": "转到对话 $1" },
+    { "match": "^(\\d+)mo$", "replace": "$1 个月" },
+    { "match": "^(\\d+)w$", "replace": "$1 周" },
+    { "match": "^(\\d+)d$", "replace": "$1 天" },
+    { "match": "^(\\d+)h$", "replace": "$1 小时" },
+    { "match": "^(\\d+)y$", "replace": "$1 年" },
+    { "match": "^On ([^-].*)$", "replace": "在 $1" },
+    { "match": "^Close (powershell|pwsh|cmd|bash|zsh|sh|node|python)$", "replace": "关闭 $1" },
+    { "match": "^Worked for (\\d+)h (\\d+)m$", "replace": "工作了 $1 小时 $2 分" },
+    { "match": "^Worked for (\\d+)m (\\d+)s$", "replace": "工作了 $1 分 $2 秒" },
+    { "match": "^Worked for (\\d+(?:\\.\\d+)?)s$", "replace": "工作了 $1 秒" },
+    { "match": "^Worked for (\\d+)m$", "replace": "工作了 $1 分钟" },
+    { "match": "^(\\d+) files?, ran (\\d+) commands? \\+(\\d+) -(\\d+)$", "replace": "$1 个文件，运行了 $2 条命令 +$3 -$4" },
+    { "match": "^(\\d+) files?, ran (\\d+) commands?$", "replace": "$1 个文件，运行了 $2 条命令" },
+    { "match": "^(\\d+) files?, explored (\\d+) files? \\+(\\d+) -(\\d+)$", "replace": "$1 个文件，探索了 $2 个文件 +$3 -$4" },
+    { "match": "^(\\d+) files?, explored (\\d+) files?$", "replace": "$1 个文件，探索了 $2 个文件" },
+    { "match": "^(\\d+) files? \\+(\\d+) -(\\d+)$", "replace": "$1 个文件 +$2 -$3" },
+    { "match": "^ran (\\d+) commands?$", "replace": "运行了 $1 条命令" },
+    { "match": "^explored (\\d+) files?$", "replace": "探索了 $1 个文件" },
+    { "match": "^(\\d+) commands?$", "replace": "$1 条命令" },
+    { "match": "^Ran ([a-z].*)$", "replace": "已运行 $1" },
+    { "match": "^Editing (\\S+\\.\\w+)$", "replace": "正在编辑 $1" },
+    { "match": "^Editing (\\S+\\.\\w+)\\. Open activity$", "replace": "正在编辑 $1。打开活动" },
+    { "match": "^Remove (.+)$", "replace": "移除 $1" },
+    { "match": "^(\\d+) searche?s?$", "replace": "$1 次搜索" },
+    { "match": "^(\\d+) fetches?$", "replace": "$1 次获取" },
+    { "match": "^(\\d+) New Messages?$", "replace": "$1 条新消息" },
+    { "match": "^explored (\\d+) searche?s?$", "replace": "探索了 $1 次搜索" },
+    { "match": "^(\\d+) background tasks?$", "replace": "$1 个后台任务" },
+    { "match": "^(\\d+) Terminals? Running$", "replace": "$1 个终端运行中" },
+    { "match": "^Open terminals \\((\\d+)\\)$", "replace": "打开的终端 ($1)" },
+    { "match": "^(\\d+) To-dos?$", "replace": "$1 项待办" },
+    { "match": "^Plan progress: (\\d+) To-dos?$", "replace": "计划进度：$1 项待办" },
+    { "match": "^Completed (\\d+) of (\\d+) to-dos$", "replace": "已完成 $1 / $2 项待办" },
+    { "match": "^Completed (\\d+) of (\\d+)$", "replace": "已完成 $1 / $2" },
+    { "match": "^Show (\\d+) more$", "replace": "显示更多 $1 项" },
+    { "match": "^(\\d+)% Full$", "replace": "已用 $1%" },
+    { "match": "^(\\d+)k context window$", "replace": "$1k 上下文窗口" },
+    { "match": "^Context usage by category: ~?([\\d.]+[KM]?) of ([\\d.]+[KM]?) tokens used$", "replace": "按类别的上下文用量：已使用 $1 / $2 tokens" },
+    { "match": "^(.+) parameters$", "replace": "$1 参数" },
+    { "match": "^(.+) options$", "replace": "$1 选项" },
+    { "match": "^(.+) demo$", "replace": "$1 演示" },
+    { "match": "^Configure (.+)$", "replace": "配置 $1" },
+    { "match": "^Use (.+) template$", "replace": "使用「$1」模板" },
+    { "match": "^New Agent in (.+)$", "replace": "在 $1 中新建智能体" },
+    { "match": "^Branch (.+), open branch menu$", "replace": "分支 $1，打开分支菜单" },
+    { "match": "^Branch (.+), click to copy$", "replace": "分支 $1，点击复制" },
+    { "match": "^(.+), switch branch$", "replace": "$1，切换分支" },
+    { "match": "^Waiting up to (\\d+)m (\\d+)s for shell$", "replace": "等待 shell 最多 $1 分 $2 秒" },
+    { "match": "^Waiting up to (\\d+)m for shell$", "replace": "等待 shell 最多 $1 分钟" },
+    { "match": "^Waiting up to (\\d+)s for shell$", "replace": "等待 shell 最多 $1 秒" },
+    { "match": "^Reading (\\S+)$", "replace": "正在读取 $1" },
+    { "match": "^Editing (\\S+)$", "replace": "正在编辑 $1" },
+    { "match": "^Using ([\\w.-]+)$", "replace": "正在使用 $1" },
+    { "match": "^Running (.+)$", "replace": "正在运行 $1" },
+    { "match": "^Searching (.+)$", "replace": "正在搜索 $1" },
+    { "match": "^(.+) enabled$", "replace": "$1 已启用" },
+    { "match": "^(.+) disabled$", "replace": "$1 已禁用" },
+    { "match": "^Panel (.+)$", "replace": "面板 $1" },
+    { "match": "^Keybinding: (.+)$", "replace": "快捷键：$1" },
+    { "match": "^\\[(\\d+) lines? collapsed\\]$", "replace": "[已折叠 $1 行]" },
+    { "match": "^(\\d+) unmodified lines?$", "replace": "$1 行未修改" },
+    { "match": "^Expand (\\d+) unmodified lines?$", "replace": "展开 $1 行未修改内容" },
+    { "match": "^Waiting (\\d+)m (\\d+)s$", "replace": "等待 $1 分 $2 秒" },
+    { "match": "^Waiting (\\d+)m$", "replace": "等待 $1 分钟" },
+    { "match": "^Waiting (\\d+)s$", "replace": "等待 $1 秒" },
+    { "match": "^Reading (\\S+) L(\\d+)-(\\d+)$", "replace": "正在读取 $1 第 $2-$3 行" },
+    { "match": "^Today (\\d{1,2}:\\d{2})$", "replace": "今天 $1" },
+    { "match": "^Yesterday (\\d{1,2}:\\d{2})$", "replace": "昨天 $1" },
+    { "match": "^Side Chat · (.+)$", "replace": "侧边对话 · $1" },
+    { "match": "^Agents of (.+)$", "replace": "「$1」的智能体" },
+    { "match": "^Last (\\d+) [Dd]ays$", "replace": "最近 $1 天" },
+    { "match": "^Copy link to (.+)$", "replace": "复制指向 $1 的链接" },
+    { "match": "^Auto \\((.+)\\)$", "replace": "自动（$1）" },
+    { "match": "^Playback rate (.+)$", "replace": "播放速度 $1" },
+    { "match": "^Tab (\\d+)$", "replace": "标签页 $1" },
+    { "match": "^(\\d+) worktrees?$", "replace": "$1 个工作树" },
+    { "match": "^seek back (\\d+) seconds$", "replace": "后退 $1 秒", "flags": "i" },
+    { "match": "^seek forward (\\d+) seconds$", "replace": "前进 $1 秒", "flags": "i" },
+    { "match": "^e\\.g\\., (.+)$", "replace": "例如，$1" },
+    { "match": "^temporary workspace ⋅ (.+)$", "replace": "临时工作区 ⋅ $1" },
+    { "match": "^workspace ⋅ (.+)$", "replace": "工作区 ⋅ $1" },
+    { "match": "^Delete (.+)$", "replace": "删除 $1" },
+    { "match": "^(\\d+) more$", "replace": "还有 $1 项" },
+    { "match": "^Close (.+)$", "replace": "关闭 $1" },
+    { "match": "^Prompt, tile (\\d+)$", "replace": "提示词，磁贴 $1" },
+    { "match": "^(\\d+)ms$", "replace": "$1 毫秒" },
+    { "match": "^Grepping (.+)$", "replace": "正在 Grep 搜索 $1" }
   ]
 }
